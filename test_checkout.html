@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CloseLoop Test Payments</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        body { font-family: system-ui; max-width: 900px; margin: 2rem auto; padding: 1rem; }
+        .order-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .btn { background: #02042B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.875rem; }
+        .btn:hover { background: #1a1d4a; }
+        .amount { font-size: 1rem; font-weight: bold; color: #02042B; min-width: 100px; }
+        .order-id { font-family: monospace; font-size: 0.75rem; color: #666; flex: 1; }
+        .method-badge { background: #e8f0fe; color: #1a73e8; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; }
+        .paid { background: #e6f4ea; color: #1e7e34; }
+    </style>
+</head>
+<body>
+    <h1>CloseLoop - Test Payment Suite (60 orders)</h1>
+    <p>Use test card: <strong>4111 1111 1111 1111</strong> | Any future date | Any CVV | Click "Pay Now" for each</p>
+    <div id="orders">
+
+        <div class="order-card" id="card-order_TUf2g26bNehiRk">
+            <div class="amount">₹425.42</div>
+            <div class="order-id">order_TUf2g26bNehiRk</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2g26bNehiRk', 42542, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2gTkhLsvOTl">
+            <div class="amount">₹541.50</div>
+            <div class="order-id">order_TUf2gTkhLsvOTl</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2gTkhLsvOTl', 54150, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2gt2mR1n9g6">
+            <div class="amount">₹414.34</div>
+            <div class="order-id">order_TUf2gt2mR1n9g6</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2gt2mR1n9g6', 41434, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2hHZr5p3dlK">
+            <div class="amount">₹368.83</div>
+            <div class="order-id">order_TUf2hHZr5p3dlK</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf2hHZr5p3dlK', 36883, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2hfHW2j0Hyk">
+            <div class="amount">₹101.11</div>
+            <div class="order-id">order_TUf2hfHW2j0Hyk</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2hfHW2j0Hyk', 10111, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2i3YuUuA5fu">
+            <div class="amount">₹232.13</div>
+            <div class="order-id">order_TUf2i3YuUuA5fu</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2i3YuUuA5fu', 23213, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2iR9BPcnplJ">
+            <div class="amount">₹261.73</div>
+            <div class="order-id">order_TUf2iR9BPcnplJ</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf2iR9BPcnplJ', 26173, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2iqUNSx9rCD">
+            <div class="amount">₹450.75</div>
+            <div class="order-id">order_TUf2iqUNSx9rCD</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2iqUNSx9rCD', 45075, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2jEIA0zVLy6">
+            <div class="amount">₹396.01</div>
+            <div class="order-id">order_TUf2jEIA0zVLy6</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2jEIA0zVLy6', 39601, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2jdKfdNe9Dg">
+            <div class="amount">₹485.71</div>
+            <div class="order-id">order_TUf2jdKfdNe9Dg</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf2jdKfdNe9Dg', 48571, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2k1nsSjkxnD">
+            <div class="amount">₹150.81</div>
+            <div class="order-id">order_TUf2k1nsSjkxnD</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2k1nsSjkxnD', 15081, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2kQOPmMsVtW">
+            <div class="amount">₹324.26</div>
+            <div class="order-id">order_TUf2kQOPmMsVtW</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2kQOPmMsVtW', 32426, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2koQdoKeaKH">
+            <div class="amount">₹285.47</div>
+            <div class="order-id">order_TUf2koQdoKeaKH</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2koQdoKeaKH', 28547, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2lG8bts49df">
+            <div class="amount">₹236.46</div>
+            <div class="order-id">order_TUf2lG8bts49df</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2lG8bts49df', 23646, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2lsxxBArRTZ">
+            <div class="amount">₹351.95</div>
+            <div class="order-id">order_TUf2lsxxBArRTZ</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2lsxxBArRTZ', 35195, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2mJWx1zqJrE">
+            <div class="amount">₹110.04</div>
+            <div class="order-id">order_TUf2mJWx1zqJrE</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2mJWx1zqJrE', 11004, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2mh57EDSPV4">
+            <div class="amount">₹175.16</div>
+            <div class="order-id">order_TUf2mh57EDSPV4</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2mh57EDSPV4', 17516, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2n4Xy9Zoagp">
+            <div class="amount">₹209.05</div>
+            <div class="order-id">order_TUf2n4Xy9Zoagp</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2n4Xy9Zoagp', 20905, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2nSBGimSMpC">
+            <div class="amount">₹413.49</div>
+            <div class="order-id">order_TUf2nSBGimSMpC</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2nSBGimSMpC', 41349, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2npi2ZrKzY7">
+            <div class="amount">₹246.16</div>
+            <div class="order-id">order_TUf2npi2ZrKzY7</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2npi2ZrKzY7', 24616, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2oDM3YiJiPt">
+            <div class="amount">₹135.41</div>
+            <div class="order-id">order_TUf2oDM3YiJiPt</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2oDM3YiJiPt', 13541, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2oaoHFm2joV">
+            <div class="amount">₹370.38</div>
+            <div class="order-id">order_TUf2oaoHFm2joV</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2oaoHFm2joV', 37038, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2oyCPGpzzjx">
+            <div class="amount">₹225.78</div>
+            <div class="order-id">order_TUf2oyCPGpzzjx</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2oyCPGpzzjx', 22578, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2pMQstqS7md">
+            <div class="amount">₹575.35</div>
+            <div class="order-id">order_TUf2pMQstqS7md</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2pMQstqS7md', 57535, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2pjrg1452N0">
+            <div class="amount">₹230.11</div>
+            <div class="order-id">order_TUf2pjrg1452N0</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2pjrg1452N0', 23011, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2q8BBO7kHFa">
+            <div class="amount">₹215.54</div>
+            <div class="order-id">order_TUf2q8BBO7kHFa</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2q8BBO7kHFa', 21554, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2qVWISs5jI0">
+            <div class="amount">₹133.61</div>
+            <div class="order-id">order_TUf2qVWISs5jI0</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2qVWISs5jI0', 13361, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2qu92ayTNMP">
+            <div class="amount">₹454.79</div>
+            <div class="order-id">order_TUf2qu92ayTNMP</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2qu92ayTNMP', 45479, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2rIgwrlkdkE">
+            <div class="amount">₹221.55</div>
+            <div class="order-id">order_TUf2rIgwrlkdkE</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2rIgwrlkdkE', 22155, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2rg0l2oHDs9">
+            <div class="amount">₹495.84</div>
+            <div class="order-id">order_TUf2rg0l2oHDs9</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2rg0l2oHDs9', 49584, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2s38VXuxYk1">
+            <div class="amount">₹312.28</div>
+            <div class="order-id">order_TUf2s38VXuxYk1</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2s38VXuxYk1', 31228, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2sQpCqvrFYc">
+            <div class="amount">₹209.61</div>
+            <div class="order-id">order_TUf2sQpCqvrFYc</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2sQpCqvrFYc', 20961, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2sp1Li0YEVp">
+            <div class="amount">₹343.10</div>
+            <div class="order-id">order_TUf2sp1Li0YEVp</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2sp1Li0YEVp', 34310, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2tCG0oh20Ki">
+            <div class="amount">₹451.57</div>
+            <div class="order-id">order_TUf2tCG0oh20Ki</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2tCG0oh20Ki', 45157, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2tbA6vnW9Id">
+            <div class="amount">₹119.49</div>
+            <div class="order-id">order_TUf2tbA6vnW9Id</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2tbA6vnW9Id', 11949, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2tyuS0GmKB3">
+            <div class="amount">₹382.26</div>
+            <div class="order-id">order_TUf2tyuS0GmKB3</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2tyuS0GmKB3', 38226, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2uNZkTZ2dAH">
+            <div class="amount">₹162.92</div>
+            <div class="order-id">order_TUf2uNZkTZ2dAH</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2uNZkTZ2dAH', 16292, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2ul3dC7qw5W">
+            <div class="amount">₹396.15</div>
+            <div class="order-id">order_TUf2ul3dC7qw5W</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2ul3dC7qw5W', 39615, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2v9IILIbo3e">
+            <div class="amount">₹289.95</div>
+            <div class="order-id">order_TUf2v9IILIbo3e</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf2v9IILIbo3e', 28995, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2vZLbPWKk2F">
+            <div class="amount">₹331.33</div>
+            <div class="order-id">order_TUf2vZLbPWKk2F</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2vZLbPWKk2F', 33133, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2vwhOObUlF0">
+            <div class="amount">₹318.74</div>
+            <div class="order-id">order_TUf2vwhOObUlF0</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2vwhOObUlF0', 31874, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2wJwIPQuZxC">
+            <div class="amount">₹467.86</div>
+            <div class="order-id">order_TUf2wJwIPQuZxC</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2wJwIPQuZxC', 46786, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2whizc4vno9">
+            <div class="amount">₹511.89</div>
+            <div class="order-id">order_TUf2whizc4vno9</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2whizc4vno9', 51189, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2x7FwTfqDft">
+            <div class="amount">₹467.39</div>
+            <div class="order-id">order_TUf2x7FwTfqDft</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf2x7FwTfqDft', 46739, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2xVq7qR4McE">
+            <div class="amount">₹445.22</div>
+            <div class="order-id">order_TUf2xVq7qR4McE</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf2xVq7qR4McE', 44522, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2xtDMYHNjNK">
+            <div class="amount">₹273.34</div>
+            <div class="order-id">order_TUf2xtDMYHNjNK</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf2xtDMYHNjNK', 27334, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2yGbNcqEwEf">
+            <div class="amount">₹123.43</div>
+            <div class="order-id">order_TUf2yGbNcqEwEf</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf2yGbNcqEwEf', 12343, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf2yn5hY4Tbyt">
+            <div class="amount">₹585.21</div>
+            <div class="order-id">order_TUf2yn5hY4Tbyt</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf2yn5hY4Tbyt', 58521, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf32bEuUIAvJK">
+            <div class="amount">₹240.18</div>
+            <div class="order-id">order_TUf32bEuUIAvJK</div>
+            <span class="method-badge">card</span>
+            <button class="btn" onclick="pay('order_TUf32bEuUIAvJK', 24018, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf330HBvFuEwl">
+            <div class="amount">₹218.51</div>
+            <div class="order-id">order_TUf330HBvFuEwl</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf330HBvFuEwl', 21851, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf33OIy9Bpfnr">
+            <div class="amount">₹175.53</div>
+            <div class="order-id">order_TUf33OIy9Bpfnr</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf33OIy9Bpfnr', 17553, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf33nKAtWckGV">
+            <div class="amount">₹276.37</div>
+            <div class="order-id">order_TUf33nKAtWckGV</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf33nKAtWckGV', 27637, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf34BYsRxKDch">
+            <div class="amount">₹483.21</div>
+            <div class="order-id">order_TUf34BYsRxKDch</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf34BYsRxKDch', 48321, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf34aAtNCj5vA">
+            <div class="amount">₹178.24</div>
+            <div class="order-id">order_TUf34aAtNCj5vA</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf34aAtNCj5vA', 17824, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf34zMXSzM5dP">
+            <div class="amount">₹283.70</div>
+            <div class="order-id">order_TUf34zMXSzM5dP</div>
+            <span class="method-badge">netbanking</span>
+            <button class="btn" onclick="pay('order_TUf34zMXSzM5dP', 28370, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf35OU3F2vDe8">
+            <div class="amount">₹336.30</div>
+            <div class="order-id">order_TUf35OU3F2vDe8</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf35OU3F2vDe8', 33630, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf35nJODhqbE3">
+            <div class="amount">₹331.96</div>
+            <div class="order-id">order_TUf35nJODhqbE3</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf35nJODhqbE3', 33196, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf36Bw6cVnw2F">
+            <div class="amount">₹483.14</div>
+            <div class="order-id">order_TUf36Bw6cVnw2F</div>
+            <span class="method-badge">emi</span>
+            <button class="btn" onclick="pay('order_TUf36Bw6cVnw2F', 48314, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf36bRLW4pt49">
+            <div class="amount">₹106.50</div>
+            <div class="order-id">order_TUf36bRLW4pt49</div>
+            <span class="method-badge">upi</span>
+            <button class="btn" onclick="pay('order_TUf36bRLW4pt49', 10650, this)">Pay Now</button>
+        </div>
+
+        <div class="order-card" id="card-order_TUf36zttpHCN0n">
+            <div class="amount">₹224.12</div>
+            <div class="order-id">order_TUf36zttpHCN0n</div>
+            <span class="method-badge">wallet</span>
+            <button class="btn" onclick="pay('order_TUf36zttpHCN0n', 22412, this)">Pay Now</button>
+        </div>
+
+    </div>
+    <script>
+        function pay(orderId, amount, btn) {
+            var options = {
+                key: "rzp_test_TUPwPF0bagbH45",
+                amount: amount,
+                currency: "INR",
+                name: "CloseLoop Test",
+                description: "Test payment for reconciliation",
+                order_id: orderId,
+                handler: function (response) {
+                    alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                    console.log("Payment response:", response);
+                    btn.textContent = "Paid";
+                    btn.classList.add("paid");
+                    btn.disabled = true;
+                    btn.onclick = null;
+                    document.getElementById("card-" + orderId).classList.add("paid");
+                },
+                prefill: {
+                    name: "Test User",
+                    email: "test@closeloop.com",
+                    contact: "9999999999"
+                },
+                theme: {
+                    color: "#02042B"
+                }
+            };
+            var rzp = new Razorpay(options);
+            rzp.open();
+        }
+    </script>
+</body>
+</html>

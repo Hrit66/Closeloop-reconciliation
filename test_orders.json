@@ -1,0 +1,92 @@
+[
+  {
+    "amount": 10000,
+    "amount_due": 10000,
+    "amount_paid": 0,
+    "attempts": 0,
+    "created_at": 1787769368,
+    "currency": "INR",
+    "entity": "order",
+    "id": "order_TUV1VQgU7MXlsT",
+    "notes": {
+      "batch": "closeLoop_test",
+      "index": "0",
+      "source": "test_suite"
+    },
+    "offer_id": null,
+    "receipt": "receipt_20260827_000608_0",
+    "status": "created"
+  },
+  {
+    "amount": 10500,
+    "amount_due": 10500,
+    "amount_paid": 0,
+    "attempts": 0,
+    "created_at": 1787769368,
+    "currency": "INR",
+    "entity": "order",
+    "id": "order_TUV1VWqytBTjEN",
+    "notes": {
+      "batch": "closeLoop_test",
+      "index": "1",
+      "source": "test_suite"
+    },
+    "offer_id": null,
+    "receipt": "receipt_20260827_000608_1",
+    "status": "created"
+  },
+  {
+    "amount": 11000,
+    "amount_due": 11000,
+    "amount_paid": 0,
+    "attempts": 0,
+    "created_at": 1787769368,
+    "currency": "INR",
+    "entity": "order",
+    "id": "order_TUV1VbTbRPe5Pu",
+    "notes": {
+      "batch": "closeLoop_test",
+      "index": "2",
+      "source": "test_suite"
+    },
+    "offer_id": null,
+    "receipt": "receipt_20260827_000608_2",
+    "status": "created"
+  },
+  {
+    "amount": 11500,
+    "amount_due": 11500,
+    "amount_paid": 0,
+    "attempts": 0,
+    "created_at": 1787769368,
+    "currency": "INR",
+    "entity": "order",
+    "id": "order_TUV1VgPTEKDzKB",
+    "notes": {
+      "batch": "closeLoop_test",
+      "index": "3",
+      "source": "test_suite"
+    },
+    "offer_id": null,
+    "receipt": "receipt_20260827_000608_3",
+    "status": "created"
+  },
+  {
+    "amount": 12000,
+    "amount_due": 12000,
+    "amount_paid": 0,
+    "attempts": 0,
+    "created_at": 1787769368,
+    "currency": "INR",
+    "entity": "order",
+    "id": "order_TUV1Vkt4NLzRZC",
+    "notes": {
+      "batch": "closeLoop_test",
+      "index": "4",
+      "source": "test_suite"
+    },
+    "offer_id": null,
+    "receipt": "receipt_20260827_000608_4",
+    "status": "created"
+  }
+]
