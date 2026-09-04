@@ -2,7 +2,7 @@
 razorpay==1.4.2
 python-dotenv==1.0.0
 requests==2.31.0
-# pandas==2.1.4  # Incompatible with Python 3.14, will add later if needed
+pandas>=2.2.0
 
 # For database storage (optional)
 # sqlalchemy==2.0.23
