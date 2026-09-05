@@ -140,6 +140,15 @@ payment invariants, and confidence score validity.
 
 ## Known limitations
 
+- **Schema-specific input format**: The loader currently expects ledger/bank
+  CSVs in Razorpay's native schema (see `data/razorpay_ledger.csv` for the
+  exact column format, including nested fields like
+  `acquirer_data.bank_transaction_id`). Running against a third-party
+  gateway's export today would require renaming columns to match. A
+  lightweight column-mapping config (aliasing arbitrary source columns to
+  our required fields before validation) would generalize this — scoped
+  out here for time, but a small, well-contained addition on top of the
+  existing `data_loader.py` validation step.
 - Batch size in this run is 14 settlements / 60 payments — a stress test
   at larger scale is included (`stress_test.py`, `data/stress_*.csv`) to
   check throughput does not degrade at higher volume.
