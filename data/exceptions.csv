@@ -1,0 +1,15 @@
+settlement_id,matched_payment_ids,method,confidence,reasoning,expected_payment_ids,expected_method,is_correct
+BATCH_CNRB_0828_1,"pay_dff3ffb20ada4f,pay_79f70a3d6f2749,pay_TUh9cnQMAUSXXm,pay_TUhJUGTk5QVrmN",BATCH,0.9,"Batch match: 4 payments sum to 150032.00 (target 150031.99, diff 0.01)","pay_TUh9cnQMAUSXXm,pay_TUhJUGTk5QVrmN,pay_dff3ffb20ada4f,pay_79f70a3d6f2749",BATCH,True
+BATCH_AXIS_0827_1,"pay_00833d61495248,pay_d394ae7ad5f14d",BATCH,0.9,"Batch match: 2 payments sum to 26314.00 (target 26314.02, diff 0.02)","pay_d394ae7ad5f14d,pay_00833d61495248",BATCH,True
+BATCH_ICIC_0826_1,"pay_765bc0c607004d,pay_c2f9269cb36246",BATCH,0.9,"Batch match: 2 payments sum to 77342.00 (target 77341.96, diff 0.04)","pay_765bc0c607004d,pay_c2f9269cb36246",BATCH,True
+BATCH_IBKL_0828_1,"pay_TUhINYJJInOKUJ,pay_TUhKmGg4Aa2S5Y",BATCH,0.9,"Batch match: 2 payments sum to 69831.00 (target 69831.03, diff 0.03)","pay_TUhKmGg4Aa2S5Y,pay_TUhINYJJInOKUJ",BATCH,True
+BATCH_HDFC_0828_1,"pay_98e241f1b3dc43,pay_01fffacf15c845",BATCH,0.9,"Batch match: 2 payments sum to 79863.00 (target 79862.97, diff 0.03)","pay_98e241f1b3dc43,pay_01fffacf15c845",BATCH,True
+BATCH_UTBI_0828_1,"pay_TUhHyMYw8LYSPV,pay_TUhKBAYmViteY5",BATCH,0.9,"Batch match: 2 payments sum to 48360.00 (target 48359.99, diff 0.01)","pay_TUhKBAYmViteY5,pay_TUhHyMYw8LYSPV",BATCH,True
+BATCH_BARB_0828_1,"pay_TUf5sF70a5tJOx,pay_TUf6LHur3Ow4jU,pay_TUhIpr3lgbg6xG,pay_TUhLEAbf2MJr8n",BATCH,0.9,"Batch match: 4 payments sum to 134194.00 (target 134193.97, diff 0.03)","pay_TUf5sF70a5tJOx,pay_TUf6LHur3Ow4jU,pay_TUhLEAbf2MJr8n,pay_TUhIpr3lgbg6xG",BATCH,True
+BATCH_CNRB_0829_2,"pay_TUV6A3li30L5E7,pay_TUhMLw1p876lrP",BATCH,0.9,"Batch match: 2 payments sum to 43217.00 (target 43216.97, diff 0.03)","pay_TUhMLw1p876lrP,pay_TUV6A3li30L5E7",BATCH,True
+BATCH_XBANK_4,"pay_c15fd2356a894b,pay_TUV3TH4wW7XSUT,pay_3442aa98552043",LLM,0.85,LLM global assignment,"pay_TUV3TH4wW7XSUT,pay_3442aa98552043,pay_c15fd2356a894b",BATCH,True
+BATCH_XBANK_3,"pay_TUV5okU20sAjq0,pay_TUhA5IctQMk2jj,pay_TUhNCTc6T2oxXB",LLM,0.85,LLM global assignment,"pay_TUV5okU20sAjq0,pay_TUhNCTc6T2oxXB,pay_TUhA5IctQMk2jj",BATCH,True
+BATCH_XBANK_5,"pay_92fee67c429c4e,pay_TUhNhEIdNoGBwR,pay_TUhO4QR1aGHCFO",LLM,0.85,LLM global assignment,"pay_TUhNhEIdNoGBwR,pay_TUhO4QR1aGHCFO,pay_92fee67c429c4e",BATCH,True
+BATCH_XBANK_1,"pay_98c80fe4050e4d,pay_706732f8a12041",LLM,0.85,LLM global assignment,"pay_98c80fe4050e4d,pay_706732f8a12041",BATCH,True
+BATCH_XBANK_2,"pay_0492370a71d940,pay_f201f191f7d847,pay_0b7c035a39754d,pay_TUV4H0d8vxdb3f",LLM,0.85,LLM global assignment,"pay_0492370a71d940,pay_TUV4H0d8vxdb3f,pay_f201f191f7d847,pay_0b7c035a39754d",BATCH,True
+BATCH_XBANK_6,,UNRESOLVED,0.0,No valid payment combinations found,"pay_f399dd68966649,pay_TUV4tZrvmbh2Tv,pay_b1eef78316bf41,pay_b6d940d71c9247,pay_b1360ab0731649",BATCH,
